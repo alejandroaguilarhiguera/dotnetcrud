@@ -1,0 +1,35 @@
+﻿<Window x:Class="helloWorld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:helloWorld"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="frmDashboard" Loaded="OnLoad">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lvProducts" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,89,10,10" SelectionChanged="lvProducts_SelectionChanged" MouseDoubleClick="lvProducts_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="Price" Width="100"/>
+
+
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Left" Margin="500,45,0,0" VerticalAlignment="Top" Click="btnSave_Click"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="20,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="366,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Margin="215,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="18,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="215,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Precio" HorizontalAlignment="Left" Margin="366,20,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDelete" Content=" Eliminar" HorizontalAlignment="Left" Margin="552,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.833,0.303" Click="btnDelete_Click" IsEnabled="False"/>
+    </Grid>
+</Window>
